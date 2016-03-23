@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+
+{% block js %}
+{% endblock %}
+
+
+{% block main %}
+    <style>
+        .container{
+            border: solid 2px;
+            background-color: #aaaadf;
+            padding:10px;
+        }
+        
+        #main{
+            margin: 50px auto;
+            width: 75%;
+        }
+        
+        #display_pic{
+            width: 40%;
+            margin: 5px 5%;
+            float: left;
+        }
+        
+        #details{
+            float:right;
+            width: 50%;
+            padding: 0;
+            margin: 5% 0;
+            height:100%;
+        }
+        
+        #name{
+            margin: 0;
+        }
+    </style>
+    
+    <div class='container' id='main'>
+        {% if profile.image[:4] == 'none' %}
+        <img id='display_pic' src= {{ url_for('static', filename='img/octocat.png') }}>
+        {% else %}
+        <img id='display_pic' src={{ url_for('static', filename=profile.image ) }}>
+        {% endif %}
+        <div class='container' id='details'>
+            <div class='container' id='name'>
+                {{ profile.firstname }} {{ profile.lastname }}
+            </div>
+            <br>
+            <div class='container'>
+                Created On: {{ profile.created_on }}    
+            </div>
+            <div class='container'>
+                <br>
+                ID:  {{ profile.id }}
+                <br>
+                Sex: {{ profile.sex }}
+                <br>
+                Age: {{ profile.age }}
+                <br>
+                Highest Score:  {{ profile.highest_score }}
+                <br>
+                TDollars:  {{ profile.tdollars }}
+            </div>
+
+        </div>
+        
+    </div>
+{% endblock %}
