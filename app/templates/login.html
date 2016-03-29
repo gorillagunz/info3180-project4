@@ -7,38 +7,91 @@
 
 {% block main %}
     <style>
-        .container{
-            border: solid 2px;
-            background-color: #aaaadf;
-            padding:10px;
-        }
-        
-        #main{
-            margin: 50px auto;
-            width: 75%;
-        }
-        
-        #display_pic{
-            width: 40%;
-            margin: 5px 5%;
-            float: left;
-        }
-        
-        #details{
-            float:right;
-            width: 50%;
-            padding: 0;
-            margin: 5% 0;
-            height:100%;
-        }
-        
-        #name{
-            margin: 0;
-        }
+        body{
+        	height: 100%;
+	font-family: 'Quicksand';
+}
+
+#login_page{
+	margin: 0 auto;
+	display:block;
+	float: none;
+	height: 100%;
+	text-align: center;
+
+	
+}
+
+
+
+#login_area{
+	
+	background-color: #FFAAAA;
+	border-radius: 5px;
+	padding: 20px;
+	float: none;
+	margin: 0 auto;
+	
+	
+}
+
+#system_title{
+	font-family: 'Quicksand';
+	font-weight: 400;
+	font-size: 35px;
+	color: #FF6767;
+}
+
+#login_text{
+	font-family: 'Broadway';
+	font-size: 20px;
+}
+
+#buttons{
+	height: 25px;
+}
+.form_element{
+	text-align: left;
+	margin-top: 12px;
+	margin-bottom: 5px;
+
+}
+
+
     </style>
     
-    <div class='container' id='main'>
-        
-        
-    </div>
+    	<div class='container'>
+		<div class='col-md-8 center-block' id="login_page">
+			
+			<div id='system_title'>
+				Wishlist
+			</div>
+
+			<div id="login_area" class='col-md-4'>
+				<div id="login_text">
+					Login
+				</div>
+				<br/>
+				<div class='form_element'>
+					<label>Username</label><br/>
+					<input type='text' class="form-control"/>
+				</div>
+				<div class='form_element'>
+					Password<br/>
+					<input type='password' class="form-control"/>
+				</div>
+				<div>
+					<a id='forget_pass'>Forgot Password</a>
+				</div>
+				<br/>  
+				<div id='buttons'>
+					<div class='btn btn-success' style="float:left">Login</div>
+				
+					<div class='btn btn-success' style="float:right">Sign Up</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		</div>
 {% endblock %}

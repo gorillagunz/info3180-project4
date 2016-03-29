@@ -7,7 +7,7 @@ wtforms
 Flask-SQLAlchemy
 Flask-Login
 psycopg2
-
+BeautifulSoup
 
 # ----------------------
 # Testing
@@ -19,3 +19,5 @@ mock
 # Production Server
 # ----------------------
 gunicorn
+
+

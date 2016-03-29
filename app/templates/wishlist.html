@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+
+{% block js %}
+{% endblock %}
+
+{% block main %}
+<div class="container" style="
+        width: 60%;
+        padding:25px;
+        height:100%;
+        max-width:600px;
+        min-width:350px;
+        margin: 20px auto;
+        ">
+
+    <form action="{{ url_for('new_wishlist') }}" method="post" enctype="multipart/form-data">
+        <div>
+            <h1 style="color:#FF767F;font-family:'Quicksand';float:left;">Title</h1>
+            <button class="btn btn-default" style="float:right" type="submit">Save</button>
+
+        </div>
+        <br />
+    </form>
+</div>
+{% endblock %}

@@ -8,6 +8,9 @@ from app.models import Profile, Wishlist, Item
 
 app.secret_key ="REST SECRET"
 
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+    return render_template("login.html")
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
@@ -19,6 +22,11 @@ def new_wishlist():
     if request.method == 'POST' and form.validate_on_submit():
         print form.is_private.data
     return render_template("add_wishlist.html", form=form)
+
+@app.route('/wishlist/', methods = ['GET', 'POST'])
+def wishlist():
+    return render_template("wishlist.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",port="8888")

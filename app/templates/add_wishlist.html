@@ -6,7 +6,6 @@
 
 {% block main %}
 <div class="container" style="
-        background: #ececec;
         width: 60%;
         padding:25px;
         height:100%;
@@ -14,7 +13,7 @@
         min-width:350px;
         margin: 20px auto;
         ">
-    <h2 id="contact_form_title" style="color:#688D00;font-family:'sans';">NEW WISHLIST</h2>
+    <h2 id="contact_form_title" style="color:#FF767F;font-family:'Quicksand';">NEW WISHLIST</h2>
 
     <form action="{{ url_for('new_wishlist') }}" method="post" enctype="multipart/form-data">
         <div class-"form-group">
@@ -41,7 +40,7 @@
             {{ form.is_private() }}
         </div>
         
-        <button class="btn btn-default" type="submit">Send</button>
+        <button class="btn btn-danger" style="float:right" type="submit">Save</button>
         {{ form.csrf_token }}       
     </form>
 </div>
