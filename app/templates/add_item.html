@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block js %}
+{% endblock %}
+
+{% block main %}
+<div class="container" ng-controller="NewItemCtrl" style="
+        width: 60%;
+        padding:25px;
+        height:100%;
+        max-width:600px;
+        min-width:350px;
+        margin: 20px auto;
+        ">
+    <h2 id="contact_form_title" style="color:#FF767F;font-family:'Quicksand';">NEW ITEM</h2>
+
+    <form action="{{ url_for('new_wishlist') }}" method="post" enctype="multipart/form-data">
+        <div class-"form-group">
+            <label>Title</label>
+            <br />
+            {% if 'title' in form.errors %}
+            This field is required.
+            {% endif %}
+            {{ form.title(class_="form-control") }}
+        </div>
+        <br />
+        <div class-"form-group">
+        
+            <label>Description</label>
+            <br />
+            {% if 'desc' in form.errors %}
+            This field is required.
+            {% endif %}
+            {{ form.desc(class_="form-control") }}
+        </div>
+        <br />
+        <div class-"form-group">
+            <label>Image Url</label>
+            {{ form.img(class_='form-control', **{'ng-model':'img_url'}) }}
+            <div class="btn btn-info" ng-click="get_thumbs()">Search</div>
+        </div>
+        
+        
+        <button class="btn btn-danger" style="float:right" type="submit">Save</button>
+        {{ form.csrf_token }}       
+    </form>
+</div>
+{% endblock %}

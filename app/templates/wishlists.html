@@ -13,14 +13,48 @@
         min-width:350px;
         margin: 20px auto;
         ">
-
-    <form action="{{ url_for('new_wishlist') }}" method="post" enctype="multipart/form-data">
-        <div>
-            <h1 style="color:#FF767F;font-family:'Quicksand';float:left;">Title</h1>
-            <button class="btn btn-default" style="float:right" type="submit">Save</button>
-
+    
+    <div id="header_wishlists" >
+        <h2 style="float:left;"> My Wishlists </h2>
+            <button class="btn btn-default" style="float:right" type="submit">+ New Wishlist</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div id="my_wishlists">
+        <div  
+        style="
+        height: 50px;
+        border: 1px solid #FFAAAA;
+        margin: 2px;
+        border-radius : 5px;
+        ">
+            My Private Stuff
         </div>
-        <br />
-    </form>
+        <div style="
+        height: 50px;
+        border: 1px solid #FFAAAA;
+        margin: 2px;
+        border-radius : 5px;
+        ">
+            Books
+        </div>
+        <div style="
+        height: 50px;
+        border: 1px solid #FFAAAA;
+        margin: 2px;
+        border-radius : 5px;
+        ">
+            Games
+        </div>
+        <div style="
+        height: 50px;
+        border: 1px solid #FFAAAA;
+        margin: 2px;
+        border-radius : 5px;
+        ">
+            Birthday List
+        </div>
+    </div>
 </div>
 {% endblock %}

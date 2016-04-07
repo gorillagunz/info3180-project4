@@ -18,6 +18,8 @@
 
   <!-- Rather use `less.js` to dynamically compile your `stylesheet/less` files? -->
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.4.1/less.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src={{url_for('static', filename='js/app.js')}}></script>
   <script>window.less || document.write('<script src="/static/js/less.js">\x3C/script>')</script>
 
   <!-- Need Modernizr? Uncomment the following script. -->
@@ -25,7 +27,7 @@
 
 </head>
 
-<body class="container">
+<body class="container" ng-app="Wishlist">
 
   <header>
     {% include "header.html" %}

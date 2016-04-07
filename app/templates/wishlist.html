@@ -6,7 +6,7 @@
 
 {% block main %}
 <div class="container" style="
-        width: 60%;
+        width: 80%;
         padding:25px;
         height:100%;
         max-width:600px;
@@ -14,12 +14,30 @@
         margin: 20px auto;
         ">
 
-    <form action="{{ url_for('new_wishlist') }}" method="post" enctype="multipart/form-data">
-        <div>
-            <h1 style="color:#FF767F;font-family:'Quicksand';float:left;">Title</h1>
-            <button class="btn btn-default" style="float:right" type="submit">Save</button>
-
+        <div class="clearfix">
+            
+            <h2 style="font-size:color:#FF767F;font-family:'Quicksand';">{{ wishlist_id }}
+            <button class="btn btn-default" style="float:right" type="submit">+ Add Item</button>
+            </h2>
         </div>
+        <hr />
+
+        <div id="my_items" style="clear:both;">
+        
+        <div class="media">
+  <div class="media-left">
+    <a href="#">
+      <img class="media-object" style="height:65px" src={{ url_for('static', filename='uploads/online.png' ) }} alt="...">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+    ...
+  </div>
+</div>
+
+    </div>
+        
         <br />
     </form>
 </div>
