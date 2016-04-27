@@ -66,31 +66,34 @@
 			<div id='system_title'>
 				Wishlist
 			</div>
+			
+			<form action="{{ url_for('login') }}" method="post">
 
 			<div id="login_area" class='col-md-4'>
 				<div id="login_text">
 					Login
 				</div>
-				<br/>
 				<div class='form_element'>
 					<label>Username</label><br/>
-					<input type='text' class="form-control"/>
+					{{ form.email(_class='form-control') }}
+					
 				</div>
 				<div class='form_element'>
 					Password<br/>
-					<input type='password' class="form-control"/>
+					{{ form.password(_class="form-control") }}
 				</div>
 				<div>
 					<a id='forget_pass'>Forgot Password</a>
 				</div>
 				<br/>  
 				<div id='buttons'>
-					<div class='btn btn-success' style="float:left">Login</div>
+					<button class='btn btn-success' style="float:left" type="submit">Login</button>
 				
 					<div class='btn btn-success' style="float:right">Sign Up</div>
 				</div>
+				
 			</div>
-			
+		</form>	
 		</div>
 		
 		</div>

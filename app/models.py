@@ -7,9 +7,6 @@ class Profile(db.Model):
     password = db.Column(db.String(80))
     email = db.Column(db.String(80))
 
-
-    
-    
     def __init__(self, name, password, email):
         self.name = name
         self.password = password

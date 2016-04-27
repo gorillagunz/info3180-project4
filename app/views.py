@@ -2,7 +2,7 @@ import os
 from app import app
 from app import db
 from flask import render_template, request, redirect, url_for, jsonify, Response
-from .forms import WishlistForm,ItemForm
+from .forms import WishlistForm,ItemForm, LoginForm
 import time
 from app.models import Profile, Wishlist, Item
 import requests
@@ -14,7 +14,24 @@ app.secret_key ="REST SECRET"
 
 @app.route('/login', methods = ['GET', 'POST'])
 def login():
-    return render_template("login.html")
+    form = LoginForm()
+    if request.method == 'GET':
+        return render_template("login.html", form = form)
+    else:
+        em = form.email.data
+        password = form.password.data
+        
+        user = db.session.query(Profile).filter_by(email=em, password=password).first()
+        if user != None:
+            return redirect(url_for("wishlists", userid = user.id))
+        return render_template("login.html", form = form)
+
+@app.route('/', methods = ['GET', 'POST'])
+def home_login():
+    # user = Profile(name="n", email="admin", password="pass")
+    # db.session.add(user)
+    # db.session.commit()
+    return redirect(url_for('login'))
 
 @app.route('/', methods = ['GET', 'POST'])
 def home():
@@ -27,9 +44,11 @@ def new_wishlist():
         print form.is_private.data
     return render_template("add_wishlist.html", form=form)
 
-@app.route('/wishlists/', methods = ['GET', 'POST'])
-def wishlists():
-    return render_template("wishlists.html")
+@app.route('/user/<int:userid>/wishlists/', methods = ['GET', 'POST'])
+def wishlists(userid):
+    wishlists = db.session.query(Wishlist).filter_by(userid=userid)
+    form = WishlistForm()
+    return render_template("wishlists.html", wishlists=wishlists, form=form)
 
 @app.route('/wishlist/<int:wishlist_id>', methods = ['GET', 'POST'])
 def wishlist(wishlist_id):
@@ -61,8 +80,6 @@ def api_register():
 
         return response
     return jsonify(user)
-    
-
 
 @app.route('/api/user/:id/wishlist', methods=['GET', 'POST'])
 def api_wishlist(id):

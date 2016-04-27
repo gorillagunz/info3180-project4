@@ -5,7 +5,8 @@
 {% endblock %}
 
 {% block main %}
-<div class="container" style="
+<div class="container"
+ng-controller="WishlistsCtrl" style="
         width: 60%;
         padding:25px;
         height:100%;
@@ -13,15 +14,42 @@
         min-width:350px;
         margin: 20px auto;
         ">
-    
+    <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">New Wishlist</h3>
+        </div>
+        <div class="modal-body">
+           <form>
+                <div>
+                    <label>Title</label>
+                    {{ form.title(class_='form-control') }}
+                </div>
+                <div>
+                    <label>Description</label>
+                    {{ form.desc(class_='form-control') }}
+                </div>
+                <div>
+                    <label>Private</label>
+                    {{ form.is_private() }}
+                </div>
+           </form>
+           
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+        </script>
     <div id="header_wishlists" >
         <h2 style="float:left;"> My Wishlists </h2>
-            <button class="btn btn-default" style="float:right" type="submit">+ New Wishlist</button>
+            <button class="btn btn-default" style="float:right" ng-click="open()">+ New Wishlist</button>
     </div>
     <br>
     <br>
     <br>
+
     <div id="my_wishlists">
+        {% for wishlist in wishlists %}
         <div  
         style="
         height: 50px;
@@ -29,32 +57,9 @@
         margin: 2px;
         border-radius : 5px;
         ">
-            My Private Stuff
+            {{ wishlist.title }}
         </div>
-        <div style="
-        height: 50px;
-        border: 1px solid #FFAAAA;
-        margin: 2px;
-        border-radius : 5px;
-        ">
-            Books
-        </div>
-        <div style="
-        height: 50px;
-        border: 1px solid #FFAAAA;
-        margin: 2px;
-        border-radius : 5px;
-        ">
-            Games
-        </div>
-        <div style="
-        height: 50px;
-        border: 1px solid #FFAAAA;
-        margin: 2px;
-        border-radius : 5px;
-        ">
-            Birthday List
-        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

@@ -1,4 +1,4 @@
-var app = angular.module("Wishlist",[]);
+var app = angular.module("Wishlist",['ui.bootstrap']);
 
 
 app.controller('NewItemCtrl', function($scope, $http){
@@ -27,7 +27,20 @@ app.controller('NewItemCtrl', function($scope, $http){
         }
       
     };
-    
-    
-    
+});
+
+app.controller('WishlistsCtrl', function($scope, $http, $uibModal){
+    $scope.open = function (size) {
+
+    $scope.animationsEnabled = true;
+    var modalInstance = $uibModal.open({
+      animation: $scope.animationsEnabled,
+      templateUrl: 'myModalContent.html',
+      controller: 'WishlistsCtrl',
+      resolve: {
+        
+        }
+      
+    });
+    }
 });
