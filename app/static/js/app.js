@@ -36,11 +36,25 @@ app.controller('WishlistsCtrl', function($scope, $http, $uibModal){
     var modalInstance = $uibModal.open({
       animation: $scope.animationsEnabled,
       templateUrl: 'myModalContent.html',
-      controller: 'WishlistsCtrl',
+      controller: 'NewWishlistCtrl',
       resolve: {
         
         }
       
     });
+    
     }
+});
+
+app.controller('NewWishlistCtrl', function ($scope, $uibModalInstance) {
+
+  
+
+  $scope.ok = function () {
+    $uibModalInstance.close();
+  };
+
+  $scope.cancel = function () {
+    $uibModalInstance.dismiss('cancel');
+  };
 });

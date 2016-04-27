@@ -50,7 +50,7 @@ def wishlists(userid):
     form = WishlistForm()
     return render_template("wishlists.html", wishlists=wishlists, form=form)
 
-@app.route('/wishlist/<int:wishlist_id>', methods = ['GET', 'POST'])
+@app.route('/wishlist/<wishlist_id>', methods = ['GET', 'POST'])
 def wishlist(wishlist_id):
     return render_template("wishlist.html", wishlist_id = wishlist_id)
 
