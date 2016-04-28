@@ -17,7 +17,9 @@
         <div class="clearfix">
             
             <h2 style="font-size:color:#FF767F;font-family:'Quicksand';">{{ wishlist_id }}
-            <button class="btn btn-default" style="float:right" type="submit">+ Add Item</button>
+            <a href="{{ url_for('new_item',wishlist_id=wishlist_id) }}">
+              <button class="btn btn-default" style="float:right" type="submit" >+ Add Item</button>
+              </a>
             </h2>
         </div>
         <hr />

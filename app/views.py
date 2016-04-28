@@ -52,7 +52,8 @@ def wishlists(userid):
 
 @app.route('/wishlist/<wishlist_id>', methods = ['GET', 'POST'])
 def wishlist(wishlist_id):
-    return render_template("wishlist.html", wishlist_id = wishlist_id)
+    return render_template("wishlist.html", wishlist_id=wishlist_id)
+
 
 @app.route('/wishlist/<wishlist_id>/new', methods = ['GET', 'POST'])
 def new_item(wishlist_id):

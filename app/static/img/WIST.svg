@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 1052.3622 744.09448"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="WIST.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.65149813"
+     inkscape:cx="307.88445"
+     inkscape:cy="364.28571"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1280"
+     inkscape:window-height="666"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-308.26772)">
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-opacity:1"
+       id="path3338"
+       cx="356.86981"
+       cy="706.23688"
+       r="17.651625" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-opacity:1"
+       id="path3340"
+       cx="300.07764"
+       cy="635.63037"
+       r="29.931015" />
+    <g
+       id="g4232"
+       transform="translate(214.88934,1.534924)">
+      <path
+         inkscape:connector-curvature="0"
+         id="path4173"
+         d="m 230.2377,469.09175 a 75.211266,60.62949 0 0 0 -71.98633,43.13867 52.954872,52.954872 0 0 0 -3.22461,-0.1621 52.954872,52.954872 0 0 0 -52.95508,52.95507 52.954872,52.954872 0 0 0 49.23438,52.76953 72.141418,37.605633 0 0 0 -0.88281,5.5586 72.141418,37.605633 0 0 0 72.14062,37.60547 72.141418,37.605633 0 0 0 50.63672,-10.83789 66.001724,35.303249 0 0 0 44.5293,9.30273 66.001724,35.303249 0 0 0 12.60351,-0.67969 66.001724,40.67548 0 0 0 36.51367,6.81836 66.001724,40.67548 0 0 0 66.00196,-40.67383 66.001724,40.67548 0 0 0 -0.0547,-0.95507 35.303249,43.745331 0 0 0 32.28711,-43.5586 35.303249,43.745331 0 0 0 -34.08594,-43.66992 88.258118,53.722336 0 0 0 -86.40429,-43.05273 88.258118,53.722336 0 0 0 -47.42579,8.42382 75.211266,60.62949 0 0 0 -66.92773,-32.98242 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#ff2a2a;stroke-opacity:1" />
+      <rect
+         y="518.20874"
+         x="184.19087"
+         height="13.814315"
+         width="190.33055"
+         id="rect4197"
+         style="fill:#ffffff;fill-opacity:1;stroke:#d35f5f;stroke-opacity:1" />
+      <rect
+         y="546.6048"
+         x="184.19086"
+         height="13.814315"
+         width="190.33055"
+         id="rect4197-1"
+         style="fill:#ffffff;fill-opacity:1;stroke:#de8787;stroke-opacity:1" />
+      <rect
+         y="578.8382"
+         x="182.65594"
+         height="13.814315"
+         width="190.33055"
+         id="rect4197-4"
+         style="fill:#ffffff;fill-opacity:1;stroke:#e9afaf;stroke-opacity:1" />
+      <rect
+         y="611.07159"
+         x="182.65594"
+         height="13.814315"
+         width="190.33055"
+         id="rect4197-6"
+         style="fill:#ffffff;fill-opacity:1;stroke:#f4d7d7;stroke-opacity:1" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:180px;line-height:125%;font-family:Quicksand;-inkscape-font-specification:Quicksand;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="340.75308"
+       y="687.05029"
+       id="text4228"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4230"
+         x="340.75308"
+         y="687.05029"
+         style="font-size:125px;fill:#ff2a2a">WIST</tspan></text>
+  </g>
+</svg>

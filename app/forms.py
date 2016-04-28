@@ -22,6 +22,7 @@ class WishlistForm(Form):
     is_private = BooleanField("private", [])
     
 class ItemForm(Form):
+    url = TextField('title', validators=[Required()])
     title = TextField('title', validators=[Required()])
     desc = TextAreaField('desc', [Required()])
     img = TextField('img', validators=[Required()])
