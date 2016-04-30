@@ -66,13 +66,17 @@
 			 <img src={{ url_for('static', filename='img/WIST.png')}} class="center-block" style="width: 250px;">
 
 			<div id='system_title'>
-				Login
+				Sign Up
 			</div>
 			
-			<form action="{{ url_for('login') }}" method="post">
+			<form action="{{ url_for('register') }}" method="post">
 
 			<div id="login_area" class='col-md-4'>
-				
+				<div class='form_element'>
+					<label>Name</label><br/>
+					{{ form.name(class_='form-control') }}
+					
+				</div>
 				<div class='form_element'>
 					<label>Email</label><br/>
 					{{ form.email(class_='form-control') }}
@@ -87,9 +91,9 @@
 				</div>
 				<br/>  
 				<div id='buttons'>
-					<button class='btn btn-success' style="float:left" type="submit">Login</button>
+					<a href="{{url_for('login')}}"><div class='btn btn-success' style="float:right">Login</div></a>
 				
-					<a href="{{url_for('register')}}"><div class='btn btn-success' style="float:right">Sign Up</div></a>
+					<button class='btn btn-success' style="float:left" type="submit">Sign Up</button>
 				</div>
 				
 			</div>

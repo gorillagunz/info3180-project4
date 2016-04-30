@@ -2,7 +2,7 @@ import os
 from app import app
 from app import db
 from flask import render_template, request, redirect, url_for, jsonify, Response
-from .forms import WishlistForm,ItemForm, LoginForm
+from .forms import WishlistForm,ItemForm, LoginForm, SignUpForm
 import time
 from app.models import Profile, Wishlist, Item
 import requests
@@ -26,6 +26,28 @@ def login():
         if user != None:
             return redirect(url_for("wishlists", userid = user.id))
         return render_template("login.html", form = form)
+
+@app.route('/register', methods = ['GET', 'POST'])
+def register():
+    form = SignUpForm()
+    if request.method == 'GET':
+        return render_template("signup.html", form = form)
+    else:
+        em = form.email.data
+        password = form.password.data
+        user = db.session.query(Profile).filter_by(email=em, password=password).first()
+        if user != None:
+            return redirect(url_for("wishlists", userid = user.id))
+        name = form.name.data
+        user1 = Profile(name, password, em)
+        db.session.add(user1)
+        db.session.commit()
+        user2 = db.session.query(Profile).filter_by(email=em, password=password).first()
+
+        if user2 != None:
+            return redirect(url_for("wishlists", userid = user2.id))        
+        return render_template("register.html", form = form)
+
 
 @app.route('/', methods = ['GET', 'POST'])
 def home_login():

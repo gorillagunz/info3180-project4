@@ -6,6 +6,14 @@ app.config(function($interpolateProvider) {
     $interpolateProvider.endSymbol('$}');
   });
 
+app.controller('NavCtrl', function($scope){
+  
+  $scope.logout = function(){
+    localStorage.removeItem('user');
+    window.location.href = '/login'
+  }
+  
+});
 app.controller('NewItemCtrl', function($scope, $http, $uibModal){
     $scope.item_url = "";
     $scope.img_url = "";
@@ -20,8 +28,8 @@ app.controller('NewItemCtrl', function($scope, $http, $uibModal){
             alert("No url entered.");
         } else {
             var base = "http://info3180-project2-drellimal2-1.c9users.io:8080/";
-            var route = "api/thumbnail/process?url=";
-            var data_url = base + route + $scope.prod_url;
+            var route = "/api/thumbnail/process?url=";
+            var data_url = route + $scope.prod_url;
             
             for(var x = 0; x < 4;x++){
                 $http.get(data_url).success(function(data){
@@ -78,8 +86,8 @@ app.controller('ThumbnailCtrl', function ($scope, $http, $uibModalInstance, prod
             alert("No url entered.");
         } else {
             var base = "http://info3180-project2-drellimal2-1.c9users.io:8080/";
-            var route = "api/thumbnail/process?url=";
-            var data_url = base + route + $scope.prod_url;
+            var route = "/api/thumbnail/process?url=";
+            var data_url = route + $scope.prod_url;
             console.log(data_url);
             console.log(data_url);
             for(var x = 0; x < 1;x++){
@@ -166,8 +174,8 @@ app.controller('NewWishlistCtrl', function ($scope, $http, $uibModalInstance) {
   $scope.new_wishlist = {};
   $scope.ok = function () {
     var base = "http://info3180-project2-drellimal2-1.c9users.io:8080/";
-    var route = "api/wishlist/new?";
-    var data_url = base + route + 'title=' + $scope.title + '&desc=' + $scope.desc;
+    var route = "/api/wishlist/new?";
+    var data_url = route + 'title=' + $scope.title + '&desc=' + $scope.desc;
     if($scope.private==true){
       $scope.private =1;
     }else{
@@ -188,6 +196,14 @@ app.controller('NewWishlistCtrl', function ($scope, $http, $uibModalInstance) {
     $uibModalInstance.dismiss('cancel');
   };
 });
+app.controller('LoginCtrl', function($scope){
+  var uid = localStorage.getItem('user') ;
+  if(uid !== null){
+    var path ='/user/'+uid+'/wishlists';
+    window.history.pushState({'user' : uid}, 'user', path );
+    window.location.href = path;
+  }
+});
 
 app.controller('WishlistCtrl', function($scope, $http, $uibModal){
     $scope.items = [
@@ -197,7 +213,6 @@ app.controller('WishlistCtrl', function($scope, $http, $uibModal){
     var wishlist_id = url.split('/').pop();
     var userid = localStorage.getItem('user')
     var data_url= '/api/user/'+ userid + '/wishlist/' + wishlist_id + '/items'
-    alert(data_url);
     console.log(data_url);
     var get_wishlist_items = function(){
     $http.get(data_url).success(function(data){

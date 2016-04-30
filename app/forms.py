@@ -14,7 +14,6 @@ class SignUpForm(Form):
     email = TextField('email', validators=[Required()])
     password = PasswordField('password', [Required()])
     remember_me = BooleanField("remember_me", [])
-    submit = SubmitField('submit', [])
 
 class WishlistForm(Form):
     title = TextField('username', validators=[Required()])
