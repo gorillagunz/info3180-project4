@@ -12,11 +12,12 @@
         max-width:600px;
         min-width:350px;
         margin: 20px auto;
-        ">
+        "
+        ng-controller='WishlistCtrl'>
 
         <div class="clearfix">
             
-            <h2 style="font-size:color:#FF767F;font-family:'Quicksand';">{{ wishlist_id }}
+            <h2 style="font-size:color:#FF767F;font-family:'Quicksand';">My Wishlist: {{ title }}
             <a href="{{ url_for('new_item',wishlist_id=wishlist_id) }}">
               <button class="btn btn-default" style="float:right" type="submit" >+ Add Item</button>
               </a>
@@ -26,15 +27,17 @@
 
         <div id="my_items" style="clear:both;">
         
-        <div class="media">
-  <div class="media-left">
-    <a href="#">
-      <img class="media-object" style="height:65px" src={{ url_for('static', filename='uploads/online.png' ) }} alt="...">
-    </a>
+  <div class="item" ng-repeat="item in items">
+  <div class="item-left pull-left" style="width:20%;">
+      <img class="media-object" style="height:65px" src='{$ item.img_url $}' alt="...">
   </div>
-  <div class="media-body">
-    <h4 class="media-heading">Media heading</h4>
-    ...
+  <div class="pull-right" style="width:70%;">
+    <a href="{$ item.url $}">
+    <h4 class="media-heading">{$ item.title $}</h4>
+    </a>
+    <p>
+      {$ item.desc $}
+    </p>
   </div>
 </div>
 

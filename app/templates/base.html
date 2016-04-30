@@ -29,12 +29,24 @@
 </head>
 
 <body ng-app="Wishlist">
-
+  <style>
+    body{
+      background-color: #FFAAAA;
+      
+    }
+    
+    #main{
+      background-color: #FFFFFF;
+      margin: 0 auto;
+      min-height: 80vh;
+      width: 90%;
+    }
+  </style>
   <header>
     {% include "header.html" %}
   </header>
 
-  <div id="main" class="container" role="main">
+  <div id="main" role="main">
     {% block main %}{% endblock %}
   </div>
 

@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block main %}
+    
 <div class="container" ng-controller="NewItemCtrl" style="
         width: 60%;
         padding:25px;
@@ -13,9 +14,29 @@
         min-width:350px;
         margin: 20px auto;
         ">
+    <script type="text/ng-template" id="myModalContent.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Choose a thumbnail</h3>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-6 col-md-3" ng-repeat="image in images track by $index">
+                <a href="#" class="thumbnail">
+                  <img src="{$ image $}" alt="..." ng-click='selectimg(image)'>
+                </a>
+              </div>
+            </div>
+   
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+        </script>
+    
     <h2 id="contact_form_title" style="color:#FF767F;font-family:'Quicksand';">NEW ITEM</h2>
-
-    <form action="{{ url_for('login') }}" method="post" enctype="multipart/form-data">
+    
+    <form action="{{ url_for('new_item', wishlist_id=wishlist_id) }}" method="post" enctype="multipart/form-data">
         <div class-"form-group">
             <label>Product URL</label>
             <br />
@@ -24,11 +45,11 @@
             {% endif %}
             <div>
                 <div>
-            {{ form.url(class_="form-control") }}
+            {{ form.url(class_="form-control", **{'ng-model':'prod_url'}) }}
             
             </div>
             <div>
-                <button class="btn btn-info" ng-click="search()">Search</button>
+                <div class="btn btn-info" ng-click="search()">Search</div>
             </div>
             </div>
         </div>
@@ -51,10 +72,17 @@
             {{ form.desc(class_="form-control") }}
         </div>
         <br />
-        <div class-"form-group">
+        <div class-"form-group" hidden>
             <label>Image Url</label>
             {{ form.img(class_='form-control', **{'ng-model':'img_url'}) }}
-            <div class="btn btn-info" ng-click="get_thumbs()">Search</div>
+            
+        </div>
+        <div ng-if='selectedimg != ""'>
+            <label>
+                Image
+            </label>
+            <br />
+            <img style="width: 100px;" src='{$ selectedimg $}'>
         </div>
         
         

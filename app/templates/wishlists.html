@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block main %}
+<script type="text/javascript">
+        var user = {{ user }};
+    	localStorage.setItem('user', user);
+</script>
 <div class="container"
 ng-controller="WishlistsCtrl" style="
         width: 60%;
@@ -22,15 +26,15 @@ ng-controller="WishlistsCtrl" style="
            <form>
                 <div>
                     <label>Title</label>
-                    {{ form.title(class_='form-control') }}
+                    {{ form.title(class_='form-control',**{'ng-model':'title'}) }}
                 </div>
                 <div>
                     <label>Description</label>
-                    {{ form.desc(class_='form-control') }}
+                    {{ form.desc(class_='form-control',**{'ng-model':'desc'}) }}
                 </div>
                 <div>
                     <label>Private</label>
-                    {{ form.is_private() }}
+                    {{ form.is_private(**{'ng-model':'private'}) }}
                 </div>
            </form>
            
@@ -49,17 +53,23 @@ ng-controller="WishlistsCtrl" style="
     <br>
 
     <div id="my_wishlists">
-        {% for wishlist in wishlists %}
-        <div  
-        style="
-        height: 50px;
-        border: 1px solid #FFAAAA;
-        margin: 2px;
-        border-radius : 5px;
-        ">
-            {{ wishlist.title }}
+        
+        
+        <div ng-repeat="wishlist in wishlists"
+            style="
+            height: 50px;
+            border: 2px solid #FFAAAA;
+            margin: 2px;
+            border-radius : 5px;"
+            >
+            <a class='btn' href="{$'/wishlist/' + wishlist.w_id $}" style="width:100%;">
+            
+                <h3>
+            {$ wishlist.wtitle $}
+            </h3>
+            </a> 
         </div>
-        {% endfor %}
+        
     </div>
 </div>
 {% endblock %}

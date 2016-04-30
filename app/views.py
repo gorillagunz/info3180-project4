@@ -9,6 +9,7 @@ import requests
 import BeautifulSoup
 import urlparse
 import validators
+from time import gmtime, strftime
 
 app.secret_key ="REST SECRET"
 
@@ -48,18 +49,32 @@ def new_wishlist():
 def wishlists(userid):
     wishlists = db.session.query(Wishlist).filter_by(userid=userid)
     form = WishlistForm()
-    return render_template("wishlists.html", wishlists=wishlists, form=form)
+    user = db.session.query(Profile).filter_by(id=userid).first()
+    return render_template("wishlists.html", wishlists=wishlists, form=form, user=userid)
 
 @app.route('/wishlist/<wishlist_id>', methods = ['GET', 'POST'])
 def wishlist(wishlist_id):
-    return render_template("wishlist.html", wishlist_id=wishlist_id)
+    wishlist = db.session.query(Wishlist).filter_by(id=wishlist_id).first().title
+    return render_template("wishlist.html", wishlist_id=wishlist_id, title=wishlist)
 
 
 @app.route('/wishlist/<wishlist_id>/new', methods = ['GET', 'POST'])
 def new_item(wishlist_id):
     form = ItemForm()
-    
-    return render_template("add_item.html", form=form)
+    if request.method == 'POST':
+        wishlistid = wishlist_id
+        user = db.session.query(Wishlist).filter_by(id=wishlist_id).first()
+        userid = user.userid
+        title = form.title.data
+        desc=form.desc.data
+        item_url = form.url.data
+        image_url = form.img.data
+        added_on = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+        item = Item( userid, wishlistid, title, desc, image_url, item_url, added_on)
+        db.session.add(item)
+        db.session.commit()
+        return redirect(url_for('wishlist',wishlist_id=wishlist_id))
+    return render_template("add_item.html", form=form, wishlist_id=wishlist_id)
 
 """
     API SYSTEM
@@ -122,6 +137,34 @@ def get_images(url):
                 images += [str(img["src"])]
     return images
 
+@app.route('/api/wishlist/new', methods=['GET','POST'])
+def api_new_wishlist():
+    user = request.args.get('userid','')
+    title = request.args.get('title','')
+    desc = request.args.get('desc', '')
+    private = request.args.get('private', '')
+    created_on = request.args.get('created_on', '')
 
+    wishlist = Wishlist(user, title, desc, private, created_on )
+    db.session.add(wishlist)
+    db.session.commit()
+    return jsonify(data=dict(wtitle=wishlist.title, w_id=wishlist.id))
+
+@app.route('/api/user/<userid>/wishlists', methods=['GET','POST'])
+def api_user_wishlists(userid):
+    wishlists = db.session.query(Wishlist).filter_by(userid=userid)
+    jwishlists = []
+    for wishlist in wishlists:
+        jwishlists.append(dict(wtitle=wishlist.title, w_id=wishlist.id))
+    return jsonify(data=jwishlists)
+
+@app.route('/api/user/<userid>/wishlist/<wishlistid>/items', methods=['GET','POST'])
+def api_wishlist_items(userid, wishlistid):
+    items = db.session.query(Item).filter_by(wishlistid=wishlistid)
+    jitems = []
+    for item in items:
+        jitems.append(dict(title=item.title, url=item.item_url,desc=item.desc, img_url=item.image_url))
+    return jsonify(data=jitems)
+    
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0",port="8888")
