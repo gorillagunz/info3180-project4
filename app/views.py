@@ -7,6 +7,7 @@ import time
 from app.models import Profile, Wishlist, Item
 import BeautifulSoup
 import urlparse
+import requests
 import validators
 from time import gmtime, strftime
 
