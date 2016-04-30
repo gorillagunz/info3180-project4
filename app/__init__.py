@@ -14,4 +14,4 @@ db.create_all()
 
 db.session.commit() 
 
-# from app import views, models
+from app import views, models
