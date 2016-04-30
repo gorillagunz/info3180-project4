@@ -5,7 +5,6 @@ from flask import render_template, request, redirect, url_for, jsonify, Response
 from .forms import WishlistForm,ItemForm, LoginForm, SignUpForm
 import time
 from app.models import Profile, Wishlist, Item
-import requests
 import BeautifulSoup
 import urlparse
 import validators
